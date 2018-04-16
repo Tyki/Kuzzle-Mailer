@@ -1,0 +1,10 @@
+{
+    "apps": [{
+        "name"         : "KuzzleServer",
+        "script"       : "bin/kuzzle",
+        "args"         : ["start"],
+        "watch"        : ["*"],
+        "node_args"    : "--inspect",
+        "kill_timeout" : 15000
+    }]
+  }

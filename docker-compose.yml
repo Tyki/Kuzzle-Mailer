@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+  kuzzle:
+    image: kuzzleio/kuzzle:1.2.12
+    ports:
+      - "7512:7512"
+    cap_add:
+      - SYS_PTRACE
+    depends_on:
+      - redis
+      - elasticsearch
+    environment:
+      - kuzzle_services__db__client__host=http://elasticsearch:9200
+      - kuzzle_services__internalCache__node__host=redis
+      - kuzzle_services__memoryStorage__node__host=redis
+      - NODE_ENV=production
+    volumes:
+      - /home/gara/workspace/Kuzzle-Mailer/docker-entrypoint.sh:/var/app/docker-compose/scripts/docker-entrypoint.sh  
+      - /home/gara/workspace/Kuzzle-Mailer/pm2.json:/config/pm2.json
+      - /home/gara/workspace/Kuzzle-Mailer/lib/.kuzzlerc.sample:/var/app/.kuzzlerc
+      - /home/gara/workspace/Kuzzle-Mailer/lib:/var/app/plugins/enabled/kuzzle-mailer
+
+  redis:
+    image: redis:3.2
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.4.1
+    ports:
+      - "9200:9200"
+    environment:
+      - cluster.name=kuzzle
+      # disable xpack
+      - xpack.security.enabled=false
+      - xpack.monitoring.enabled=false
+      - xpack.graph.enabled=false
+      - xpack.watcher.enabled=false

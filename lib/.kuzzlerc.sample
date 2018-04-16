@@ -1,0 +1,18 @@
+{
+    "plugins": {
+        "kuzzle-mailer": {
+            "transporter": {
+                "host": "aspmx.l.google.com",
+                "port": "25",
+                "secure": false,
+                "auth": {
+                    "user": "cxpmuarecette@gmail.com",
+                    "pass": "cxpmrecette"
+                },
+                "ignoreTLS": true,
+                "secureConnection": false,
+                "connectionTimeout": 5000
+            }
+        }
+    }
+}
