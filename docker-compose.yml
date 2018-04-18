@@ -16,10 +16,10 @@ services:
       - kuzzle_services__memoryStorage__node__host=redis
       - NODE_ENV=production
     volumes:
-      - /home/gara/workspace/Kuzzle-Mailer/docker-entrypoint.sh:/var/app/docker-compose/scripts/docker-entrypoint.sh  
-      - /home/gara/workspace/Kuzzle-Mailer/pm2.json:/config/pm2.json
-      - /home/gara/workspace/Kuzzle-Mailer/lib/.kuzzlerc.sample:/var/app/.kuzzlerc
-      - /home/gara/workspace/Kuzzle-Mailer/lib:/var/app/plugins/enabled/kuzzle-mailer
+      - /home/gara/workspace/kuzzle-Mailer/docker-entrypoint.sh:/var/app/docker-compose/scripts/docker-entrypoint.sh  
+      - /home/gara/workspace/kuzzle-Mailer/pm2.json:/config/pm2.json
+      - /home/gara/workspace/kuzzle-Mailer/lib/.kuzzlerc.sample:/var/app/.kuzzlerc
+      - /home/gara/workspace/kuzzle-Mailer/:/var/app/plugins/enabled/kuzzle-mailer/
 
   redis:
     image: redis:3.2
