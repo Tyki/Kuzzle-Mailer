@@ -1,16 +1,13 @@
 {
     "plugins": {
         "kuzzle-mailer": {
+            // "transporter": "smtps://username:password@smtp.gmail.com"
             "transporter": {
-                "host": "aspmx.l.google.com",
-                "port": "25",
-                "secure": false,
+                "service": "gmail",
                 "auth": {
-                    "user": "cxpmuarecette@gmail.com",
-                    "pass": "cxpmrecette"
+                    "user": "username@gmail.com",
+                    "pass": "password"
                 },
-                "ignoreTLS": true,
-                "secureConnection": false,
                 "connectionTimeout": 5000
             }
         }
